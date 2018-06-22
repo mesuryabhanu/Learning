@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+    <style>
+        #overallFbArea {width: 100%; }
+        #overallFbSubmitBtn {float: right; margin-top:2px;}
+        #overvallFbSuccess {display: none;}
+        #popupArea {width: 400px}
+    </style>
+</head>
+<body>
+    <div id="popupArea">
+        <label for="overallFeedback" class="overallFbCtrl">Enter your feedback: </label>
+        <textarea rows="8" cols="50" id="overallFbArea" name="overallFeedback" class="overallFbCtrl"></textarea>
+        <label id="overvallFbSuccess">Thanks for your feedback.</label>
+        <button id="overallFbSubmitBtn" class="overallFbCtrl">Submit</button>
+        <a href="#" id="viewSettings">View Settings</a><br>
+    </div>
+</body>
+<script src="scripts/popup.js"></script>
+</html>

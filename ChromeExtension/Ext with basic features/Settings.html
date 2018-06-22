@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="scripts/main.css">
+<style>
+body {
+    font-family: "Lato", sans-serif;
+}
+
+.sidenav li:hover a{
+    color: #eee;
+}
+.main {
+    margin-left: 420px; /* Same as the width of the sidenav */
+    font-size: 28px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+}
+
+#sidebarTitle{
+    color:#999;
+    margin-bottom: 2px;
+}
+
+#downloadLink{
+    color:lightsteelblue;
+    margin-bottom: 2px;
+    padding-top: 0px;
+    font-size: small;
+    text-decoration: underline;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+
+</style>    
+</head>
+<body>
+
+<div class="sidenav" id="sidebar">
+    <h2 id="sidebarTitle" style="text-align: center">My Settings</h2>
+</div>
+</body>
+
+<script src="scripts/utilities.js"></script>
+<script src="scripts/Settings.js"></script>
+</html> 

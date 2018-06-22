@@ -1,0 +1,52 @@
+{
+    "author": "Surya",
+    "background": {
+        "page": "background.html",
+        "persistent": true
+    },
+    "browser_action": {
+        "default_icon": {
+            "20": "icons/ExtLogo.png",
+            "48": "icons/ExtLogo.png"
+        },
+        "default_title": "My Basic Extension"
+    },
+    "description": "This is an extension which implements the basic features of extensions",
+    "icons": {
+        "48": "icons/ExtLogo.png"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "http://*/*",
+                "https://*/*"
+            ],
+            "js": [
+                "scripts/jquery.min.js",
+                "scripts/utilities.js",
+                "scripts/sidePanelHtml.js",
+                "scripts/addElements.js",
+                "scripts/main.js"
+            ],
+            "css": [
+                "scripts/main.css"
+            ]
+        }],
+    "manifest_version": 3,
+    "name": "My Basic Extension",
+    "permissions": [
+        "tabs",
+        "activeTab",
+        "identity",
+        "identity.email",
+        "http://ServiceTopLevelURL/*"
+    ],
+    "version": "1.0",
+    "-ms-preload": {
+        "backgroundScript": "backgroundScriptsAPIBridge.js",
+        "contentScript": "contentScriptsAPIBridge.js"
+    },
+    "web_accessible_resources": [
+        "icons/*.png"
+    ]
+}
