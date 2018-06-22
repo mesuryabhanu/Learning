@@ -1,0 +1,50 @@
+<html>
+<head>
+    <style>
+        .ab_identity{
+          margin-top: 10px;
+          margin-bottom: 10px;
+          padding-top:5px;
+          padding-bottom:5px;
+          border-top: solid 1px lightgray;
+          border-bottom: solid 1px lightgray;
+        }
+
+        .ab_nameSubmitBtn{
+            margin-top: 10px;
+            margin-right:5px;
+            margin-left:5px;
+            height:25px;
+            border-radius: 3px;
+            text-align:center;
+            background: rgb(0,128,157);
+            border-color: rgb(0,128,157);
+            color:white;
+            cursor: pointer;
+            min-width:60px;
+          }
+
+        .ab_nameBox{
+          height:20px;
+          width:100px;
+        }
+
+    </style>
+</head>
+    <body>
+        <div class="ab_identity">
+            <div>Please enter your username:</div>
+            <input class="ab_nameBox" type="text" style="display:inline">
+            <button class="ab_nameSubmitBtn" id="ab_nameSubmitBtn">Submit</button>
+        </div>
+        <script>
+            	document.querySelector('#ab_nameSubmitBtn').onclick = function(){
+                    var name = document.getElementsByClassName('ab_nameBox')[0].value;
+                    if(name.trim() != ""){
+                        document.getElementsByClassName('ab_identity')[0].innerText = "Hello " + name + "!";
+                    }
+                };
+        </script>
+</body>
+</html>        
+

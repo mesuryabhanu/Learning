@@ -1,0 +1,77 @@
+<html>
+<head>
+    <style>
+    .ab_addCmnts{
+      margin-top: 25px;
+        width: 400px;
+    }
+
+    .ab_addCmntsBox{
+      width:100%;
+      height:80px;
+      margin-top: 5px;
+
+    }
+
+    .ab_addCmntsBtn{
+      margin-top: 10px;
+      margin-right:5px;
+      width:60px;
+      height:25px;
+      border-radius: 3px;
+      text-align:center;
+      cursor: pointer;
+    }
+        
+    .ab_cmntReset{
+      background: rgb(220,220,220);
+    }
+
+    .ab_cmntSubmit{
+      background: rgb(0,128,157);
+      border-color: rgb(0,128,157);
+      color:white;
+    }
+        
+    #ab_valMsg{
+      min-height:20px;
+      padding:5px;
+    }
+
+    </style>
+</head>
+<body>
+        <div class="ab_addCmnts">
+            <div>Please share more feedback with us (optional)</div>
+            <textarea class="ab_addCmntsBox"></textarea>
+            <button class="ab_addCmntsBtn ab_cmntReset" id="ab_cmntReset">Reset</button>
+            <button class="ab_addCmntsBtn ab_cmntSubmit" id="ab_cmntSubmit">Submit</button>
+            <span id="ab_submitMsg"></span>
+            <div id="ab_valMsg"></div>
+        </div>
+        <script>
+            document.querySelector('#ab_cmntReset').onclick = function(){document.getElementsByClassName('ab_addCmntsBox')[0].value = "";};
+            document.querySelector('#ab_cmntSubmit').onclick = function(){
+                var text = document.getElementsByClassName('ab_addCmntsBox')[0].value;
+                if(text.trim() != ""){
+                    document.body.dataset.overallTextFb = text;
+                    document.body.dataset.overallFbSubmitted = "true";
+                    document.getElementsByClassName('ab_addCmntsBox')[0].value = "";
+                    var submitMsgNode = document.getElementById("ab_submitMsg");
+                    submitMsgNode.innerText = "Submitted";
+                    submitMsgNode.style.color = "green"
+                    window.setTimeout(function(){
+                        submitMsgNode.innerText = "";
+                        submitMsgNode.style.color = "black";
+                    }, 1000);
+                }
+                else{var validationMsgNode = document.getElementById("ab_valMsg");
+                    validationMsgNode.innerText = "Please select at least one option to submit.";
+                    validationMsgNode.style.color = "red"
+                    window.setTimeout(function(){validationMsgNode.innerText = ""; validationMsgNode.style.color = "black"}, 3000);
+                }
+            };
+        </script>
+</body>
+</html>        
+

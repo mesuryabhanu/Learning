@@ -1,0 +1,82 @@
+<html>
+<head>
+    <style>
+
+        .ab_happinessBtns{
+          margin-top:15px;
+            width:400px;
+        }
+
+        .ab_emoticonCont{
+          margin-top: 10px;
+          width:160px;
+          text-align:center;
+        }
+
+        .ab_emoticon{
+          width:30px;
+          height:30px; 
+          margin: auto;
+          border-radius: 20px;
+          cursor: pointer;
+          border:solid 1px transparent;
+        }
+        .ab_emoticon:active{
+          box-shadow: 1px 1px 1px 1px #666;
+         transform: translateY(2px);
+        }
+
+        #ab_happyEmo{
+          float: left;
+        }
+
+        #ab_neutralEmo{
+        }
+
+        #ab_angryEmo{
+          float: right
+        }
+
+    </style>
+</head>
+<body>
+        <div class="ab_happinessBtns">
+            <div>How happy with the results?</div>
+            <div class="ab_emoticonCont">
+                <img id="ab_happyEmo" src="resources/Happy.png" class="ab_emoticon">
+                <img id="ab_neutralEmo" src="resources/Neutral.png" class="ab_emoticon">
+                <img id="ab_angryEmo" src="resources/angry.png" class="ab_emoticon">
+            </div>
+        </div>
+        <script>
+            document.querySelector('#ab_happyEmo').onclick = function(){
+                emoticonClicked(this, "happy", "green");
+            };
+            document.querySelector('#ab_neutralEmo').onclick = function(){
+                emoticonClicked(this, "neutral", "black");
+            };
+            document.querySelector('#ab_angryEmo').onclick = function(){
+                emoticonClicked(this, "angry", "red");
+            };
+            
+            function emoticonClicked(node, expression, borderColor){
+                if(node.dataset.clicked == "true"){
+                    node.dataset.clicked = false;
+                    delete document.body.dataset.overallSatis;
+                    node.style.borderColor = "transparent";
+                }
+                else {
+                    document.body.dataset.overallSatis = expression;
+                    var emoticons = document.querySelectorAll(".ab_emoticon")
+                    Array.from(emoticons).forEach(function(x){
+                        x.style.borderColor = "transparent";
+                        x.dataset.clicked = false;;
+                    });
+                    node.style.borderColor = borderColor;
+                    node.dataset.clicked = true;
+                }
+            }
+
+        </script>
+</body>
+</html>      

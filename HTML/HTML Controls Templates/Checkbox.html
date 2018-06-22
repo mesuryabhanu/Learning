@@ -1,0 +1,124 @@
+<html>
+    <head>
+        <style>
+            /*------------------*/
+            /* start of style for feedback checkboxes  */
+            /* The container */
+            .ab_fbOptions{
+              padding:2px;
+              margin-left: 0xp;
+              cursor: pointer;
+            }
+            
+            .ab_fbOptionContainer {
+              display: block;
+              position: relative;
+              padding-left: 15px;
+              margin:2px;
+              cursor: pointer;
+              font-size: 14px;
+              -webkit-user-select: none;
+              -moz-user-select: none;
+              -ms-user-select: none;
+              user-select: none;
+            }
+
+            /* Hide the browser's default checkbox */
+            .ab_fbOptionContainer input {
+              position: absolute;
+              opacity: 0;
+              cursor: pointer;
+            }
+
+            /* Create a custom checkbox */
+            .ab_fbOptionCheckmark {
+              position: absolute;
+              top: 0;
+              left: 0;
+              height: 12px;
+              width: 12px;
+              background-color: #eee;
+            }
+
+            /* On mouse-over, add a grey background color */
+            .ab_fbOptionContainer:hover input ~ .ab_fbOptionCheckmark {
+              background-color: #ccc;
+            }
+
+            /* When the checkbox is checked, add a blue background */
+            .ab_fbOptionContainer input:checked ~ .ab_fbOptionCheckmark {
+              background-color: #2196F3;
+            }
+
+            /* When the checkbox is checked, add a blue background */
+            .ab_fbOptionContainerPositive input:checked ~ .ab_fbOptionCheckmark {
+              background-color: green;
+            }
+            .ab_fbOptionContainerNegative input:checked ~ .ab_fbOptionCheckmark {
+              background-color: red;
+            }
+
+            /* Create the checkmark/indicator (hidden when not checked) */
+            .ab_fbOptionCheckmark:after {
+              content: "";
+              position: absolute;
+              display: none;
+            }
+
+            /* Show the checkmark when checked */
+            .ab_fbOptionContainer input:checked ~ .ab_fbOptionCheckmark:after {
+              display: block;
+            }
+
+
+            /* Style the checkmark/indicator */
+            .ab_fbOptionContainer .ab_fbOptionCheckmark:after {
+              left: 3px;
+              top: 0px;
+              width: 3px;
+              height: 8px;
+              border: solid white;
+              border-width: 0 3px 3px 0;
+              -webkit-transform: rotate(45deg);
+              -ms-transform: rotate(45deg);
+              transform: rotate(45deg);
+            }
+            /*------------------*/
+            /* end of style for feedback checkboxes  */
+
+
+            
+        </style>
+    </head>
+    <body>
+        <div>
+            <div>Choose the applicables</div>
+            <div class="ab_fbOptionsCont">
+                <ul style="margin-top:5px;list-style-type: none;padding:0">
+                    <li class="ab_fbOptions"><label class="ab_fbOptionContainer ab_fbOptionContainerNegative" style="display: block;">The results are bad<input type="checkbox" class="ab_fbOptionscheck" id="BadResults"> <span class="ab_fbOptionCheckmark"></span></label>
+                    <li class="ab_fbOptions"><label class="ab_fbOptionContainer ab_fbOptionContainerNegative" style="display: block;">The results are irrelevant.<input type="checkbox" class="ab_fbOptionscheck" id="Irrelevant"> <span class="ab_fbOptionCheckmark"></span></label>
+                    <li class="ab_fbOptions"><label class="ab_fbOptionContainer ab_fbOptionContainerPositive" style="display: block;">The results are good.<input type="checkbox" class="ab_fbOptionscheck" id="GoodResults"> <span class="ab_fbOptionCheckmark"></span></label>
+                    <li class="ab_fbOptions"><label class="ab_fbOptionContainer ab_fbOptionContainerPositive" style="display: block;">This is another option<input type="checkbox" class="ab_fbOptionscheck" id="AnotherOption"> <span class="ab_fbOptionCheckmark"></span></label>
+                    <li class="ab_fbOptions"><label class="ab_fbOptionContainer" style="display: block;">Last option Neutral<input type="checkbox" class="ab_fbOptionscheck" id="LastOption"> <span class="ab_fbOptionCheckmark"></span></label>
+                </ul>
+            </div>
+        </div>
+        
+            <script type="application/javascript">
+                	Array.from(document.querySelectorAll('.ab_fbOptionscheck')).forEach(function(x){
+                        x.onclick = function(){
+                            var checkBoxData = {};
+                            Array.from(document.querySelectorAll('.ab_fbOptionscheck')).forEach(function(x){
+                                checkBoxData[x.id] = x.checked;
+                            });
+                            alert(JSON.stringify(checkBoxData));
+                        };
+                    });
+                    Array.from(sidePanel.querySelectorAll('.ab_fbOptions>span')).forEach(function(x){
+                        x.onclick = function(){
+                            x.parentNode.querySelector('.ab_fbOptionscheck').click();
+                        };
+	                });
+            </script>
+    </body>
+</html>
