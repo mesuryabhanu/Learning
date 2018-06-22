@@ -1,16 +1,16 @@
-#Developing chrome extensions:
+# Developing chrome extensions:
 If you want to create a chrome extension, follow these steps:
 1. Explore: The first steps is to install many(>50) extensions and take note of interesting designs and features. Go through their code and understand how they have implemented a particular feature.
 2. Create design spec: List the features you want, and decide the compelte flow with the UX mocks. This steps is crucial for timely delivery of the projects. If you skip this the journey will be painful.
 3. Create dev spec: Break the product into small pieces and implement them on by one. It will make the development very easy if you spend more time here and do a nice breakdown.
 4. Work on implementing the features by following the dev spec.
 
-#Edge extension:
+# Edge extension:
 To create an Edge extension, first create a Chrome extension and then make it compatible with Edge using Microsoft Edge Extension Tookit(you can download it from internet). It creates two additional files contentScriptsAPIBridge.js and backgroundScriptsAPIBridge.js to bridge the API call to chrome plarform APIs to Edge APIs and references these two files in manifest with -ms-preload field.
 
 
-#Extension Basics:
-##Manifest.json
+# Extension Basics:
+## Manifest.json
 The root file of the extension is manifest.json which contains the details/reference of the others files. You can check the format of manifest.json on internet to know what all fields are supported and the meaning of those fields. The most common parts of manifest.json are described here:
 1. content_scripts: List of JS and css files which runs after page load, every time the user goes to a site mathing the 'matches' regex. Take care that the files should be written in order you intend them to be used and the external libraries used are also referenced here. 
     "content_scripts": [
@@ -45,19 +45,19 @@ It describes the icon which appears on the top of the browser for the extension.
 4. permissions:
 Here you need to specify the additional permissions your extension needs.
 
-##Parts of extesnsion:
+## Parts of extesnsion:
     Content scripts
     Background scripts
     popup.html
 
-##Message passing between different parts of extension: 
+## Message passing between different parts of extension: 
 You can pass messages from background to content script or content to background script. 
 You dont need to pass message to communicate from one content script to other or one background script to other, you can use function calls for that.
 
-##localStorage: It is a storage provided by the browser for webpages, similar to cookies but much larger than cookies. The content scripts can access the localStorage of the current page. The background html of the extension also has a localStorage which can be accessed through background scripts and is persistent across browser sessions and computer restarts. The limit of localStorage of any webPage or of any extension is 25 to 20 MB. Always keep in mind that localStorage accessed though content script is differnt from localStorage accessed though background HTML. If you want to save something from content script persistently, send it as message to background script and store it in localStorage from background script.
+## localStorage: It is a storage provided by the browser for webpages, similar to cookies but much larger than cookies. The content scripts can access the localStorage of the current page. The background html of the extension also has a localStorage which can be accessed through background scripts and is persistent across browser sessions and computer restarts. The limit of localStorage of any webPage or of any extension is 25 to 20 MB. Always keep in mind that localStorage accessed though content script is differnt from localStorage accessed though background HTML. If you want to save something from content script persistently, send it as message to background script and store it in localStorage from background script.
 
-##Making calls to an external API
-##Debugging
+## Making calls to an external API
+## Debugging
 
 
 Commons tips:
