@@ -54,13 +54,14 @@ Here you need to specify the additional permissions your extension needs.
 You can pass messages from background to content script or content to background script. 
 You dont need to pass message to communicate from one content script to other or one background script to other, you can use function calls for that.
 
-## localStorage: It is a storage provided by the browser for webpages, similar to cookies but much larger than cookies. The content scripts can access the localStorage of the current page. The background html of the extension also has a localStorage which can be accessed through background scripts and is persistent across browser sessions and computer restarts. The limit of localStorage of any webPage or of any extension is 25 to 20 MB. Always keep in mind that localStorage accessed though content script is differnt from localStorage accessed though background HTML. If you want to save something from content script persistently, send it as message to background script and store it in localStorage from background script.
+## localStorage:
+It is a storage provided by the browser for webpages, similar to cookies but much larger than cookies. The content scripts can access the localStorage of the current page. The background html of the extension also has a localStorage which can be accessed through background scripts and is persistent across browser sessions and computer restarts. The limit of localStorage of any webPage or of any extension is 25 to 20 MB. Always keep in mind that localStorage accessed though content script is differnt from localStorage accessed though background HTML. If you want to save something from content script persistently, send it as message to background script and store it in localStorage from background script.
 
 ## Making calls to an external API
 ## Debugging
 
 
-Commons tips:
+## Commons tips:
 1. Opening a URL or extension page in new Tab
 2. Modifying the HTML of the current page: Take care that the IDs and class names of the newly added elements do not match with existing IDs/classes on the page otherwise unexpected problem will occur.
 3. Add event listeners to current page
